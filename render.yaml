@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: paperbridge
+    runtime: docker
+    plan: starter
+    numInstances: 1
+    healthCheckPath: /healthz
+    envVars:
+      - key: SITE_PASSWORD
+        generateValue: true
+      - key: TRANSLATION_API_KEY
+        sync: false
+      - key: TRANSLATION_MODEL
+        value: gpt-4.1-mini
+      - key: TRANSLATION_BASE_URL
+        value: https://api.openai.com/v1
